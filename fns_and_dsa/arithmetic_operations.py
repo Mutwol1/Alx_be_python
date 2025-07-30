@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-def perform_operation(num1: float, num2: float, operation: str) -> float:
+def perform_operation(num1, num2, operation):
     """
     Perform basic arithmetic operations on two numbers.
     
@@ -23,8 +23,7 @@ def perform_operation(num1: float, num2: float, operation: str) -> float:
         return num1 * num2
     elif operation == 'divide':
         if num2 == 0:
-            return None  # main.py will handle this appropriately
+            return None
         return num1 / num2
     else:
-        return None  # invalid operation
-
+        return None
