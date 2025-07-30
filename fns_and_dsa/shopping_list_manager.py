@@ -1,7 +1,7 @@
-#!/usr/bin`/env python3
+#!/usr/bin/env python3
 
 def display_menu():
-    print("\nShopping List Manager")
+    print("Shopping List Manager")
     print("1. Add Item")
     print("2. Remove Item")
     print("3. View List")
@@ -14,7 +14,6 @@ def main():
         choice = input("Enter your choice: ").strip()
 
         if choice == '1':
-            # Add an item
             item = input("Enter the item to add: ").strip()
             if item:
                 shopping_list.append(item)
@@ -22,7 +21,6 @@ def main():
             else:
                 print("Item name cannot be empty.")
         elif choice == '2':
-            # Remove an item
             if not shopping_list:
                 print("The shopping list is empty.")
                 continue
@@ -34,7 +32,6 @@ def main():
             else:
                 print(f"'{item}' was not found in the shopping list.")
         elif choice == '3':
-            # View the list
             if not shopping_list:
                 print("Your shopping list is empty.")
             else:
