@@ -1,19 +1,66 @@
+class Book:
+    """Base class representing a book with title and author"""
+    def __init__(self, title, author):
+        """Initialize book with title and author"""
+        self.title = title
+        self.author = author
+    
+    def __str__(self):
+        """String representation of the book"""
+        return f"Book: {self.title} by {self.author}"
+
+
+class EBook(Book):
+    """Derived class representing an electronic book"""
+    def __init__(self, title, author, file_size):
+        """
+        Initialize ebook with title, author and file size
+        Args:
+            title (str): Book title
+            author (str): Book author
+            file_size (int): File size in KB
+        """
+        super().__init__(title, author)
+        self.file_size = file_size
+    
+    def __str__(self):
+        """String representation of the ebook"""
+        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
+
+
 class PrintBook(Book):
-    def __init__(self, title, author, isbn, cover_type, page_count):
-        super().__init__(title, author, isbn)
-        self.cover_type = cover_type
+    """Derived class representing a physical printed book"""
+    def __init__(self, title, author, page_count):
+        """
+        Initialize print book with title, author and page count
+        Args:
+            title (str): Book title
+            author (str): Book author
+            page_count (int): Number of pages
+        """
+        super().__init__(title, author)
         self.page_count = page_count
     
     def __str__(self):
-        return (f"PrintBook: {self.title} by {self.author} "
-                f"(ISBN: {self.isbn}, {self.cover_type}, {self.page_count} pages)")
+        """String representation of the print book"""
+        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
-class EBook(Book):
-    def __init__(self, title, author, isbn, file_format, file_size):
-        super().__init__(title, author, isbn)
-        self.file_format = file_format
-        self.file_size = file_size  # in MB
+
+class Library:
+    """Class representing a library using composition to manage books"""
+    def __init__(self):
+        """Initialize library with empty book collection"""
+        self.books = []
     
-    def __str__(self):
-        return (f"EBook: {self.title} by {self.author} "
-                f"(ISBN: {self.isbn}, Format: {self.file_format}, Size: {self.file_size}MB)")
+    def add_book(self, book):
+        """
+        Add a book to the library collection
+        Args:
+            book (Book): Book instance to add
+        """
+        self.books.append(book)
+    
+    def list_books(self):
+        """Print details of all books in the library"""
+        for book in self.books:
+            print(book)
